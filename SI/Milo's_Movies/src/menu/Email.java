@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 public class Email {
     
+    
     public String enviarCorreo(String correo, String password){
         
         //Caracteres para generar codigo de recuperacion
