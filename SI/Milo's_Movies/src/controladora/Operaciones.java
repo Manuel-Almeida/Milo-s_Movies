@@ -27,10 +27,28 @@ public class Operaciones {
             conect=con.conexion();
             st=conect.createStatement();
             n=st.executeUpdate(query);
-            JOptionPane.showMessageDialog(null,"Registro insertado correctamente...");
+            JOptionPane.showMessageDialog(null,"Registro exitoso!!");
             st.close();
         } catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERROR al insertar el registro..."+ex);
+        }
+        return n;
+    }
+    
+    //Metodo para actualizar datos de la BD
+    public int actualizar(String tabla, String campo, String valor, String correo){
+        
+        int n=0;
+        //update tabla set (campo) = (valor)
+        try{
+            query="update "+tabla+" set ("+campo+") = ("+valor+") where correo='"+correo+"'";
+            conect=con.conexion();
+            st=conect.createStatement();
+            n=st.executeUpdate(query);
+            JOptionPane.showMessageDialog(null,"Contraseña restablecida!!");
+            st.close();
+        } catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERROR al actualizar el campo..."+ex);
         }
         return n;
     }
@@ -83,6 +101,7 @@ public class Operaciones {
             }
             else{
                 JOptionPane.showMessageDialog(null,"Error de Acceso");
+                System.out.println("nelpa");
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null,"ERROR "+e.getMessage());
